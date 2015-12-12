@@ -61,9 +61,20 @@ function removeEntity(res) {
 
 // Gets a list of Complains
 exports.index = function(req, res) {
-  Complain.findAsync()
-    .then(responseWithResult(res))
-    .catch(handleError(res));
+  var email = req.query.userEmail;
+  var company = req.query.company;
+  var query = Complain.find();
+  if(email) {
+    query.where("userEmail").equals(email);
+  }
+  if(company) {
+    query.where("company").equals(company);
+  }
+  query.exec()
+  .then(function (things, err) {
+    if(err) { return handleError(res, err); }
+    return res.json(200, things);
+  })
 };
 
 // Gets a single Complain from the DB

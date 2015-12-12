@@ -4,37 +4,40 @@
  */
 
 'use strict';
-import Thing from '../api/thing/thing.model';
+import Complaint from '../api/complain/complain.model';
 
-Thing.find({}).removeAsync()
+Complaint.find({}).removeAsync()
   .then(function() {
-    Thing.create({
-      name: 'Development Tools',
-      info: 'Integration with popular tools such as Bower, Grunt, Babel, Karma, ' +
-             'Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, ' +
-             'Stylus, Sass, and Less.'
+    Complaint.create({
+      content: "The service is very bad",
+      userEmail: "abc@gmail.com",
+      company: "M1",
+      rate: 4
     }, {
-      name: 'Server and Client integration',
-      info: 'Built with a powerful and fun stack: MongoDB, Express, ' +
-             'AngularJS, and Node.'
+      content: "The service is very bad",
+      userEmail: "abc@gmail.com",
+      company: "M1",
+      rate: 2
     }, {
-      name: 'Smart Build System',
-      info: 'Build system ignores `spec` files, allowing you to keep ' +
-             'tests alongside code. Automatic injection of scripts and ' +
-             'styles into your index.html'
+      content: "The service is very bad",
+      userEmail: "abc@gmail.com",
+      company: "Singtel",
+      rate: 1
     }, {
-      name: 'Modular Structure',
-      info: 'Best practice client and server structures allow for more ' +
-             'code reusability and maximum scalability'
+      content: "The service is very bad",
+      userEmail: "abc@gmail.com",
+      company: "Singapore Airline",
+      rate: 2
     }, {
-      name: 'Optimized Build',
-      info: 'Build process packs up your templates as a single JavaScript ' +
-             'payload, minifies your scripts/css/images, and rewrites asset ' +
-             'names for caching.'
+      content: "The service is very bad",
+      userEmail: "abc@gmail.com",
+      company: "M1",
+      rate: 3
     }, {
-      name: 'Deployment Ready',
-      info: 'Easily deploy your app to Heroku or Openshift with the heroku ' +
-             'and openshift subgenerators'
+      content: "The service is very bad",
+      userEmail: "abc@gmail.com",
+      company: "M1",
+      rate: 5
     });
   });
 
