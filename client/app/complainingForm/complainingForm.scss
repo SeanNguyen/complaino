@@ -1,0 +1,30 @@
+.complainingForm {
+	position: relative;
+
+	md-tab {
+		md-tab-item {
+			color: black !important;
+		}
+	}
+
+	md-autocomplete md-autocomplete-wrap {
+		box-shadow: none;
+		border: #3F51B5 2px solid;	
+		border-radius: 7px;
+	}
+
+	.container {
+		max-width: 700px;
+	}
+
+	.blocker {
+		position: absolute;
+		top: auto;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 50px;
+		z-index: 5;
+		background-color: #FAFAFA;
+	}
+}

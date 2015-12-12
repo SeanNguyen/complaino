@@ -1,0 +1,54 @@
+<div ng-controller='complainingFormController' class="complainingForm">
+    <md-tabs md-stretch-tabs='always' md-align-tabs='bottom' md-swipe-content='true' md-selected='input.stage'>
+      <md-tab label="one">
+        <div class="container">
+          <md-autocomplete class='search-company'
+            md-selected-item="input.selectedItem"
+            md-search-text-change="searchTextChange(input.searchText)"
+            md-search-text="input.searchText"
+            md-selected-item-change="selectedItemChange(item)"
+            md-items="item in querySearch(input.searchText)"
+            md-item-text="item.name"
+            md-min-length="1"
+            placeholder="search for a company...">
+            <md-item-template>
+              <span md-highlight-text="input.searchText" md-highlight-flags="^i">{{item.name}}</span>
+            </md-item-template>
+            <md-not-found>
+              No states matching "{{ctrl.searchText}}" were found.
+            </md-not-found>
+          </md-autocomplete>
+
+          <div layout="row" layout-align="end center">
+            <md-button ng-disabled="!input.selectedItem">Detail</md-button>
+            <md-button class='md-raised md-primary' style='color: #FCFCFC' ng-click='nextStage()'
+              ng-disabled="!input.selectedItem">Complain</md-button>
+          </div>
+        </div>
+      </md-tab>
+      <md-tab label="two">
+        <div class="container">
+        	<md-input-container class="md-block">
+            <label>Complain</label>
+            <textarea ng-model="input.complain" columns="1" md-maxlength="200" md-minlength="3" rows="3"></textarea>
+          </md-input-container>
+          <div layout="row" layout-align="end center">
+            <md-button ng-click='lastStage()'>Back</md-button>
+            <md-button class='md-raised md-primary' style='color: #FCFCFC' ng-click='nextStage()'
+              ng-disabled='!input.complain || input.complain.length < 3'>Submit</md-button>  
+          </div>
+        </div>
+      </md-tab>
+      <md-tab label="three">
+        <div class="container">
+          <h3>Your request has been submited successfully. You can go watch tv and wait for the good news from us :)</h3>
+          <h4>Company: {{input.selectedItem.name}}</h4>
+          <h4>Complain: {{input.complain}}</h4>
+          <div layout="row" layout-align="end center">
+            <md-button class='md-primary' ng-click='reset()'>Submit an other complain</md-button>
+          </div>
+        </div>
+      </md-tab>
+    </md-tabs>
+    <div class="blocker"></div>
+</div>
