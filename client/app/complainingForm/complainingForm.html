@@ -5,7 +5,7 @@
         <div class="container">
           <md-autocomplete class='search-company'
             md-selected-item="input.selectedItem"
-            md-search-text-change="searchTextChange(input.searchText)"
+            md-search-text-change="querySearch(input.searchText)"
             md-search-text="input.searchText"
             md-selected-item-change="selectedItemChange(item)"
             md-items="item in querySearch(input.searchText)"

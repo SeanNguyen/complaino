@@ -8,42 +8,40 @@ class MainController {
 var app = angular.module('complainoApp');
 app.controller('complainingFormController', complainingFormController);
 
-function complainingFormController($scope, localStorageService, $mdDialog, $mdMedia) {
+function complainingFormController($rootScope, $scope, localStorageService, $mdDialog, $mdMedia) {
 	$scope.input = {
 		selectedItem: '',
 		searchText: '',
 		stage: 0
 	};
-	$scope.user = null;
+	$rootScope.user = null;
 
-
-	$scope.searchTextChange = searchTextChange;
 	$scope.querySearch = querySearch;
 	$scope.nextStage = nextStage;
 	$scope.lastStage = lastStage;
 	$scope.reset = reset;
 
+	var companies = [	{ name: 'Singtel' }, 
+						{ name: 'M1' }, 
+						{ name: 'StarHub' }, 
+						{ name: 'Singapore Airline' }];
+
 	active()
 
 	function active() {
 		//check local storageto check current user
-		$scope.user = localStorageService.get('user');
-	}
-
-	function searchTextChange(searchText) {
-		return [
-			{ name: 'Singtel' }, 
-			{ name: 'M1' }, 
-			{ name: 'StarHub' }, 
-			{ name: 'Singapore Airline' }, ]
+		$rootScope.user = localStorageService.get('user');
 	}
 
 	function querySearch(searchText) {
-		return [
-			{ name: 'Singtel' }, 
-			{ name: 'M1' }, 
-			{ name: 'StarHub' }, 
-			{ name: 'Singapore Airline' }, ]
+		var results = [];
+		for (var i = companies.length - 1; i >= 0; i--) {
+			searchText = searchText.toLowerCase();
+			var name = companies[i].name.toLowerCase();
+			if(name.indexOf(searchText) >= 0)
+				results.push(companies[i]);
+		};
+		return results;
 	}
 	
 	function nextStage() {
@@ -77,16 +75,17 @@ function complainingFormController($scope, localStorageService, $mdDialog, $mdMe
 	function showLogInPopUp(ev) {
 		$mdDialog.show({
 	      controller: DialogController,
-	      templateUrl: 'app/complainingForm/template-login.html',
+	      templateUrl: 'app/templates/template-login.html',
 	      parent: angular.element(document.body),
 	      targetEvent: ev,
 	      clickOutsideToClose:true,
 	      fullscreen: $mdMedia('sm') && $scope.customFullscreen
 	    })
-	    .then(function(answer) {
-	      $scope.status = 'You said the information was "' + answer + '".';
+	    .then(function(user) {
+	    	localStorageService.set('user', user);
+	    	$rootScope.user = user;
+	    	nextStage();
 	    }, function() {
-	      $scope.status = 'You cancelled the dialog.';
 	    });
 	    $scope.$watch(function() {
 	      return $mdMedia('sm');
@@ -94,18 +93,6 @@ function complainingFormController($scope, localStorageService, $mdDialog, $mdMe
 	      $scope.customFullscreen = (sm === true);
 	    });
 	}
-}
-
-function DialogController($scope, $mdDialog) {
-  $scope.hide = function() {
-    $mdDialog.hide();
-  };
-  $scope.cancel = function() {
-    $mdDialog.cancel();
-  };
-  $scope.answer = function(answer) {
-    $mdDialog.hide(answer);
-  };
 }
 
 })();
