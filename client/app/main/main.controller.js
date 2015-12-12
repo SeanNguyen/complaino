@@ -2,19 +2,11 @@
 
 (function() {
 
-class MainController {
+var app = angular.module('complainoApp')
+app.controller('MainController', MainController);
 
-  constructor($http) {
-    this.$http = $http;
-    this.awesomeThings = [];
+function MainController() {
 
-    $http.get('/api/things').then(response => {
-      this.awesomeThings = response.data;
-    });
-  }
 }
-
-angular.module('complainoApp')
-  .controller('MainController', MainController);
 
 })();

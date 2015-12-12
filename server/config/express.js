@@ -16,6 +16,9 @@ import path from 'path';
 import lusca from 'lusca';
 import config from './environment';
 import session from 'express-session';
+import connectMongo from 'connect-mongo';
+import mongoose from 'mongoose';
+var mongoStore = connectMongo(session);
 
 module.exports = function(app) {
   var env = app.get('env');
@@ -35,7 +38,11 @@ module.exports = function(app) {
   app.use(session({
     secret: config.secrets.session,
     saveUninitialized: true,
-    resave: false
+    resave: false,
+    store: new mongoStore({
+      mongooseConnection: mongoose.connection,
+      db: 'complaino'
+    })
   }));
 
   /**

@@ -4,6 +4,11 @@
 // ==================================
 module.exports = {
 
+  // MongoDB connection options
+  mongo: {
+    uri: 'mongodb://localhost/complaino-dev'
+  },
+
   // Seed database on startup
   seedDB: true
 

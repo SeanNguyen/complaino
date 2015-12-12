@@ -7,7 +7,8 @@ angular.module('complainoApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
-  'ngMaterial'
+  'ngMaterial',
+  'LocalStorageModule'
 ])
   .config(function($urlRouterProvider, $locationProvider, $mdThemingProvider) {
     $urlRouterProvider
@@ -30,10 +31,9 @@ angular.module('complainoApp', [
     'A200': 'FF5252',
     'A400': 'FF1744',
     'A700': 'D50000',
-    'contrastDefaultColor': '500',    // whether, by default, text (contrast)
+    'contrastDefaultColor': 'A400',    // whether, by default, text (contrast)
                                         // on this palette should be dark or light
-    'contrastDarkColors': ['50', '100', //hues which contrast should be 'dark' by default
-     '200', '300', '400', 'A100'],
+    'contrastDarkColors': undefined,
     'contrastLightColors': undefined    // could also specify this if default was 'dark'
   });
   $mdThemingProvider.theme('default').primaryPalette('appTheme');

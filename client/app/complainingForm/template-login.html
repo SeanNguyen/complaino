@@ -1,0 +1,40 @@
+<div class="loginTemplate">
+	<md-tabs md-dynamic-height md-border-bottom md-stretch-tabs='always'>
+      <md-tab label="Sign Up">
+        <md-content class="md-padding">
+        	<md-input-container class="md-block" flex-gt-sm>
+		      <label>Name</label>
+		      <input ng-model="user.name">
+		    </md-input-container>
+		    <md-input-container class="md-block" flex-gt-sm>
+		      <label>Email</label>
+		      <input type='email' ng-model="user.email">
+		    </md-input-container>
+		    <md-input-container class="md-block" flex-gt-sm>
+		      <label>Phone Number</label>
+		      <input type='number' ng-model="user.email">
+		    </md-input-container>
+		    <md-input-container class="md-block" flex-gt-sm>
+		      <label>Password</label>
+		      <input type='password' ng-model="user.password">
+		    </md-input-container>
+        </md-content>
+      </md-tab>
+      <md-tab label="Sign In">
+        <md-content class="md-padding">
+		    <md-input-container class="md-block" flex-gt-sm>
+		      <label>Email</label>
+		      <input type='email' ng-model="user.email">
+		    </md-input-container>
+		    <md-input-container class="md-block" flex-gt-sm>
+		      <label>Password</label>
+		      <input type='password' ng-model="user.password">
+		    </md-input-container>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+
+    <div layout="row" layout-align="center center">
+    	<button type="button" class="btn btn-primary">Connect with Facebook <i class="fa fa-facebook-square fa-lg"></i></button>
+    </div>
+</div>

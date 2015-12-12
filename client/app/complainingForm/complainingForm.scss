@@ -1,12 +1,6 @@
 .complainingForm {
 	position: relative;
 
-	md-tab {
-		md-tab-item {
-			color: black !important;
-		}
-	}
-
 	md-autocomplete md-autocomplete-wrap {
 		box-shadow: none;
 		border: #3F51B5 2px solid;	
@@ -26,5 +20,18 @@
 		height: 50px;
 		z-index: 5;
 		background-color: #FAFAFA;
+	}
+}
+
+.loginTemplate {
+	min-width: 300px;
+
+	md-tabs md-tabs-wrapper {
+		background-color: #F44336;
+	}
+
+	button {
+		margin: 10px;
+		width: 80%;
 	}
 }
