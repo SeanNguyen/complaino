@@ -1,0 +1,14 @@
+<div class="company container">
+	<div ng-include="'app/navbar/navbar.html'"></div>
+	
+	<h2>Company: {{companyName}}</h2>
+
+	<div class="container">
+		<md-whiteframe class="md-whiteframe-2dp complaintItem" layout='column' layout-align="start start"
+				ng-repeat='complaint in complaints'>
+			<h5>Rate: {{complaint.rate}}/5</h5>
+			<h4>{{complaint.content}}</h4>
+			<h5>{{complaint.userEmail}}</h5>
+		</md-whiteframe>
+	</div>
+</div>

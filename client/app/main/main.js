@@ -7,11 +7,6 @@ angular.module('complainoApp')
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
-        controllerAs: 'main',
-        resolve:{
-		 	init: function(facebook){
-				
-			}
-		},
+        controllerAs: 'main'
       });
   });
