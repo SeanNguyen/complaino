@@ -7,7 +7,8 @@ var ComplainSchema = new Schema({
   content: String,
   userEmail: String,
   company: String,
-  rate: Number
+  rate: Number,
+  messages: Array
 });
 
 module.exports = mongoose.model('Complain', ComplainSchema);

@@ -12,32 +12,116 @@ Complaint.find({}).removeAsync()
       content: "The service is very bad",
       userEmail: "abc@gmail.com",
       company: "M1",
-      rate: 4
+      rate: 4,
+      messages: [
+        {
+          content: "Hello",
+          isFromUser: false
+        },
+        {
+          content: "Hi",
+          isFromUser: true
+        },
+        {
+          content: "Hello",
+          isFromUser: false
+        }
+      ]
     }, {
       content: "The service is very bad",
       userEmail: "abc@gmail.com",
       company: "M1",
-      rate: 2
+      rate: 2,
+      messages: [
+        {
+          content: "Hello",
+          isFromUser: false
+        },
+        {
+          content: "Hi",
+          isFromUser: true
+        },
+        {
+          content: "Hello",
+          isFromUser: false
+        }
+      ]
     }, {
       content: "The service is very bad",
       userEmail: "abc@gmail.com",
       company: "Singtel",
-      rate: 1
+      rate: 1,
+      messages: [
+        {
+          content: "Hello",
+          isFromUser: false
+        },
+        {
+          content: "Hi",
+          isFromUser: true
+        },
+        {
+          content: "Hello",
+          isFromUser: false
+        }
+      ]
     }, {
       content: "The service is very bad",
       userEmail: "abc@gmail.com",
       company: "Singapore Airline",
-      rate: 2
+      rate: 2,
+      messages: [
+        {
+          content: "Hello",
+          isFromUser: false
+        },
+        {
+          content: "Hi",
+          isFromUser: true
+        },
+        {
+          content: "Hello",
+          isFromUser: false
+        }
+      ]
     }, {
       content: "The service is very bad",
       userEmail: "abc@gmail.com",
       company: "M1",
-      rate: 3
+      rate: 3,
+      messages: [
+        {
+          content: "Hello",
+          isFromUser: false
+        },
+        {
+          content: "Hi",
+          isFromUser: true
+        },
+        {
+          content: "Hello",
+          isFromUser: false
+        }
+      ]
     }, {
       content: "The service is very bad",
       userEmail: "abc@gmail.com",
       company: "M1",
-      rate: 5
+      rate: 5,
+      messages: [
+        {
+          content: "Hello",
+          isFromUser: false
+        },
+        {
+          content: "Hi",
+          isFromUser: true
+        },
+        {
+          content: "Hello",
+          isFromUser: false
+        }
+      ]
     });
   });
 
