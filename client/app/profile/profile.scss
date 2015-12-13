@@ -38,11 +38,18 @@
 					margin: 10px;
 					color: #DDD;
 				}
+
+				.resolved {
+					color: #AED581;
+				}
+
+				.closed {
+					color: #E57373;
+				}
 			}
 
 			.activeComplaint {
 				background-color: $color-primary;
-
 				color: #FEFEFE;
 			}
 		}
@@ -87,6 +94,18 @@
 		.inforContainer {
 			flex: 25;
 			flex-shrink: 0;
+
+			.resolveButton {
+				width: 40%;
+				color: #FEFEFE;
+			}
+
+			.md-button {
+				color: #FEFEFE;	
+			}
+			.strong {
+				font-weight: bold;
+			}
 		}
 	}
 }

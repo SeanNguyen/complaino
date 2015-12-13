@@ -65,7 +65,8 @@ function complainingFormController($rootScope, $scope, localStorageService, $mdD
 				category: $scope.input.selectedItem.categories[$scope.currentCategoryIndex],
 				customerId: $scope.user.customerId,
 				referenceId: $scope.user.referenceId,
-				messages: [{content: 'Hi', isFromUser: false}],
+				messages: [{content: "Hi! This is just to let you know that we have received your case and will start working on it. Should we require further information, we'll reach out to you shortly. Cheers!", 
+							isFromUser: false}],
 				status: true,
 				timestamp: moment()
 			});

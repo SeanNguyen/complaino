@@ -1,21 +1,13 @@
 <div ng-controller='navbarController' class="navbar" layout="row" layout-align="start center">
-	<label class="logo"><a href="/"><img src="assets/images/logo.jpg" class="logoImage img">omplaino</a></label>
+	<label class="logo"><a href="/"><img src="assets/images/logo.png" class="logoImage img">omplaino</a></label>
 	
 	<div class="profileButton">
-		<!-- <div layout layout='start start'>
-			<div class="profileButton">
-				<a href="#">FAQs</a>
-			</div>
-			<div class="profileButton">
-				<a href="#">How it Works</a>
-			</div>
-			<div class="profileButton">
-				<a href="#">Testimonials</a>
-			</div>
-			<div class="profileButton">
-				<a href="#">About Us</a>
-			</div>
-		</div> -->
+		<label>FAQ</label>
+		<label>/</label>
+		<label>About Us</label>
+		<label>/</label>
+		<label>How it works</label>
+		<label>/</label>
 		<label>{{user.name}}</label>
 		<md-button class="md-icon-button" aria-label="Profile" ng-click='goToProfile()'>
 	        <md-icon md-svg-icon="assets/images/user.svg"></md-icon>

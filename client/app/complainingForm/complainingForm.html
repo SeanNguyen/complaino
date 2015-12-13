@@ -3,8 +3,9 @@
         md-selected='input.stage' md-dynamic-height='true'>
       <md-tab label="one">
         <div class="container">
-          <div layout layout-align='center center'>
-            <h1 class="headline">One-stop customer care...</h1>  
+          <div layout='column' layout-align='center center' class="header">
+            <h1 class="headline">Issues with a business?</h1>
+            <h1 class="headline">File a case, we'll help you.</h1>
           </div>
           <md-autocomplete class='search-company'
               md-selected-item="input.selectedItem"
@@ -59,35 +60,37 @@
           <div layout="row" layout-align="end center">
             <md-button class='md-raised md-primary' style='color: #FCFCFC' ng-click='nextStage()'
               ng-disabled='!input.complain || currentCategoryIndex === -1 || input.complain.length < 3'>Submit</md-button>  
-            <md-button ng-click='lastStage()' class='md-raised md-accent'>Back</md-button>
+            <md-button ng-click='lastStage()' class='md-raised'>Back</md-button>
           </div>
         </div>
       </md-tab>
       <md-tab label="three">
         <div class="container">
-          <h3 class="resultItem">Thank You!</h3>
-          <h4 class="resultItem">Your request has been submited successfully. We are on it and you will hear from us soon.</h4>
+          <div layout='column' layout-align='center center'>
+            <h3 class="resultItem">Thank You!</h3>
+            <h5 class="resultItem">Your request has been submited successfully. We are on it and you will hear from us soon.</h5>
+          </div>
 
           <table class="table resultItem">
             <tr>
-              <td>Company</td>
+              <td class="strong">Company</td>
               <td>{{input.selectedItem.name}}</td>
             </tr>
             <tr>
-              <td>Complain</td>
+              <td class="strong">Complain</td>
               <td>{{input.complain}}</td>
             </tr>
 
             <tr>
-              <td>Started</td>
+              <td class="strong">Started</td>
               <td>{{getCurrentTime()}}</td>
             </tr>
             <tr>
-              <td>Last Update</td>
+              <td class="strong">Last Update</td>
               <td>{{getCurrentTime()}}</td>
             </tr>
             <tr>
-              <td>Status</td>
+              <td class="strong">Status</td>
               <td>Open</td>
             </tr>
           </table>

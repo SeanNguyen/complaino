@@ -1,14 +1,11 @@
 <div class="profile">
-	<div class="navbar" ng-include="'app/navbar/navbar.html'"></div>
-	
 	<div class="mainContainer">
 		<div class="complainContainer">
 			<div ng-repeat='complaint in complaints | orderBy:"timestamp":true' class="complaintItem btn btn-default btn-block" ng-click='select(complaint)'
 				ng-class='{activeComplaint: currentComplaint === complaint}'>
 				<div layout="row" layout-align="start center">
-					<div class="checkIcon">
-						<i class="fa fa-circle-thin fa-2x" ng-show='$index % 2 === 0'></i>
-						<i class="fa fa-check-circle-o fa-2x" ng-show='$index % 2 === 1'></i>	
+					<div class="checkIcon" ng-class='{resolved : !complaint.status && !complaint.closed, closed: complaint.closed}'>
+						<i class="fa fa-check-circle-o fa-2x"></i>
 					</div>
 					
 					<h4>{{complaint.company}}</h4>
@@ -18,7 +15,7 @@
 		<div class="messageContainer">
 			<div ng-repeat='message in currentComplaint.messages'>
 				<div class="messageBubble" ng-class="{user : message.isFromUser, helpdesk: !message.isFromUser}">
-					<label ng-show='!message.isFromUser'>Sean:</label>
+					<label ng-show='!message.isFromUser'>Helpdesk:</label>
 					<label ng-show='message.isFromUser'>Me:</label>
 					<h5>{{message.content}}</h5>
 				</div>
@@ -39,41 +36,44 @@
 		<div class="inforContainer">
 			<table class="table resultItem">
             <tr>
-              <td>Company</td>
+              <td class="strong">Company</td>
               <td>{{currentComplaint.company}}</td>
             </tr>
 
             <tr>
-              <td>Category</td>
+              <td class="strong">Category</td>
               <td>{{currentComplaint.category}}</td>
             </tr>
             <tr>
-              <td>Complain</td>
+              <td class="strong">Complain</td>
               <td>{{currentComplaint.content}}</td>
             </tr>
 
             <tr>
-              <td>Started</td>
+              <td class="strong">Started</td>
               <td>{{currentComplaint.timestamp | date: medium}}</td>
             </tr>
             <tr>
-              <td>Last Update</td>
+              <td class="strong">Last Update</td>
               <td>{{getCurrentTime()}}</td>
             </tr>
             <tr>
-              <td>Customer Id</td>
-              <td>{{currentComplaint.customerId}}</td>
+              <td class="strong">Customer Id</td>
+              <td ng-binded='currentComplaint.customerId'>-</td>
             </tr>
             <tr>
-              <td>Reference Id</td>
-              <td>{{currentComplaint.referenceId}}</td>
+              <td class="strong">Reference Id</td>
+              <td ng-binded='currentComplaint.referenceId'>-</td>
             </tr>
             <tr>
-              <td>Status</td>
+              <td class="strong">Status</td>
               <td><span ng-show='currentComplaint.status'>Open</span><span ng-show='!currentComplaint.status'>Close</span></td>
             </tr>
-
           </table>
+          	<div layout layout-align="center center">
+          		<md-button class='resolveButton md-primary md-raised' ng-disabled='!currentComplaint.status' ng-click='currentComplaint.status = false'>Resolve</md-button>	
+          		<md-button class='resolveButton md-accent md-raised' ng-disabled='!currentComplaint.status' ng-click='currentComplaint.status = false; currentComplaint.closed = true;'>Close</md-button>	
+          	</div>
 		</div>
 	</div>
 </div>
