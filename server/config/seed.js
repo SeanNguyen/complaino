@@ -15,7 +15,7 @@ Complaint.find({}).removeAsync()
       rate: 4,
       messages: [
         {
-          content: "Hello",
+          content: "We can surely try! May I please have a copy of your bill so I can contact them directly and reference your account? Second, may I please have your phone number, address, and your full name please? Once I have that, I will be able to call in! Thanks,",
           isFromUser: false
         },
         {
@@ -57,7 +57,7 @@ Complaint.find({}).removeAsync()
           isFromUser: false
         },
         {
-          content: "Hi",
+          content: "We can surely try! May I please have a copy of your bill so I can contact them directly and reference your account? Second, may I please have your phone number, address, and your full name please? Once I have that, I will be able to call in! Thanks,",
           isFromUser: true
         },
         {

@@ -5,9 +5,12 @@
 	display: flex;
 	flex-direction: column;
 	align-items: strech;
-	padding: 10px 10px 0 10px;
 
 	height: 100%;
+
+	.navbarContainer {
+		padding: 10px;
+	}
 
 	.mainContainer {
 		display: flex;
@@ -34,8 +37,15 @@
 				}
 
 				.checkIcon {
-					color: $color-accentLight;
+					margin: 10px;
+					color: #DDD;
 				}
+			}
+
+			.activeComplaint {
+				background-color: $color-primary;
+
+				color: #FEFEFE;
 			}
 		}
 
@@ -43,14 +53,31 @@
 			flex: 50;	
 			flex-shrink: 0;
 			border-right: #DDD solid 2px;
+			max-height: 100%;
+			padding-bottom: 200px;
+			overflow: scroll;
 
 			position: relative;
+
+			.messageBubble {
+				margin: 20px 20px 20px 50%;
+				padding: 10px;
+				border-radius: 20px;
+				border: 2px solid $color-primaryDark;
+			}
+
+			.user {
+				margin: 20px 50% 20px 20px;
+				border: 2px solid $color-accentDark;	
+			}
 
 			.chat {
 				position: absolute;
 				bottom: 0; top: auto;
 				left: 0; right: 0;
-
+				background-color: #FEFEFE;
+				box-shadow: 5px 10px 10px #888888;
+				border-top: 2px #DDD solid;
 				padding: 20px;
 
 				.md-button {

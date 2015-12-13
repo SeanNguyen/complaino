@@ -9,8 +9,12 @@ function profileController($scope, Complaint, localStorageService) {
 	$scope.complaints = [];
 	$scope.user = {};
 	$scope.currentComplaint;
+	$scope.input = { message: '' };
+
 
 	$scope.getCurrentTime = getCurrentTime;
+	$scope.select = select;
+	$scope.sendMessage = sendMessage;
 	
 	active();
 
@@ -32,6 +36,21 @@ function profileController($scope, Complaint, localStorageService) {
 	function getCurrentTime() {
 		var time = moment().format('MMM DD, YYYY');
 		return time;
+	}
+
+	function select(index) {
+		$scope.currentComplaint = $scope.complaints[index];
+	}
+
+	function sendMessage(message) {
+		$scope.currentComplaint.messages.push({
+			isFromUser: true,
+			content: message
+		});	
+
+		$scope.currentComplaint.$update();
+
+		$scope.input.message = '';
 	}
 }
 
