@@ -62,8 +62,9 @@ function complainingFormController($rootScope, $scope, localStorageService, $mdD
 				content: $scope.input.complain,
 				userEmail: user.email,
 				rate: 0,
-				customerId: user.customerId,
-				referenceId: user.referenceId,
+				category: $scope.input.selectedItem.categories[$scope.currentCategoryIndex],
+				customerId: $scope.user.customerId,
+				referenceId: $scope.user.referenceId,
 				messages: [{content: 'Hi !', isFromUser: false}],
 				status: true,
 				timestamp: moment()

@@ -5,7 +5,7 @@
 var app = angular.module('complainoApp')
 app.controller('profileController', profileController);
 
-function profileController($scope, Complaint, localStorageService) {
+function profileController($scope, Complaint, localStorageService, $interval) {
 	$scope.complaints = [];
 	$scope.user = {};
 	$scope.currentComplaint;
@@ -38,8 +38,8 @@ function profileController($scope, Complaint, localStorageService) {
 		return time;
 	}
 
-	function select(index) {
-		$scope.currentComplaint = $scope.complaints[index];
+	function select(complaint) {
+		$scope.currentComplaint = complaint;
 	}
 
 	function sendMessage(message) {
@@ -48,7 +48,13 @@ function profileController($scope, Complaint, localStorageService) {
 			content: message
 		});	
 
-		$scope.currentComplaint.$update();
+		$interval(function () {
+			$scope.currentComplaint.messages.push({
+				isFromUser: false,
+				content: "Got it! get back to you soon!"
+			});	
+			$scope.currentComplaint.$update();
+		}, 3000, 1);
 
 		$scope.input.message = '';
 	}

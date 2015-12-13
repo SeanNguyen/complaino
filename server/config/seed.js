@@ -6,6 +6,8 @@
 'use strict';
 import Complaint from '../api/complain/complain.model';
 
+var moment = require('moment');
+
 Complaint.find({}).removeAsync()
   .then(function() {
     Complaint.create({
@@ -13,6 +15,7 @@ Complaint.find({}).removeAsync()
       userEmail: "abc@gmail.com",
       company: "M1",
       rate: 4,
+      category: 'Others',
       timestamp: moment(),
       customerId: 10,
       referenceId: 9,

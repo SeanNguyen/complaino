@@ -3,7 +3,7 @@
 	
 	<div class="mainContainer">
 		<div class="complainContainer">
-			<div ng-repeat='complaint in complaints' class="complaintItem btn btn-default btn-block" ng-click='select($index)'
+			<div ng-repeat='complaint in complaints | orderBy:"timestamp":true' class="complaintItem btn btn-default btn-block" ng-click='select(complain)'
 				ng-class='{activeComplaint: currentComplaint === complaint}'>
 				<div layout="row" layout-align="start center">
 					<div class="checkIcon">
@@ -42,6 +42,11 @@
               <td>Company</td>
               <td>{{currentComplaint.company}}</td>
             </tr>
+
+            <tr>
+              <td>Category</td>
+              <td>{{currentComplaint.category}}</td>
+            </tr>
             <tr>
               <td>Complain</td>
               <td>{{currentComplaint.content}}</td>
@@ -49,16 +54,25 @@
 
             <tr>
               <td>Started</td>
-              <td>{{getCurrentTime()}}</td>
+              <td>{{currentComplaint.timestamp | date: medium}}</td>
             </tr>
             <tr>
               <td>Last Update</td>
               <td>{{getCurrentTime()}}</td>
             </tr>
             <tr>
-              <td>Status</td>
-              <td>Open</td>
+              <td>Customer Id</td>
+              <td>{{currentComplaint.customerId}}</td>
             </tr>
+            <tr>
+              <td>Reference Id</td>
+              <td>{{currentComplaint.referenceId}}</td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td><span ng-show='currentComplaint.status'>Open</span><span ng-show='!currentComplaint.status'>Close</span></td>
+            </tr>
+
           </table>
 		</div>
 	</div>

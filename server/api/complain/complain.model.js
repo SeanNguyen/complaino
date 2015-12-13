@@ -8,6 +8,7 @@ var ComplainSchema = new Schema({
   userEmail: String,
   company: String,
   rate: Number,
+  category: String,
   customerId: String,
   referenceId: String,
   messages: Array,
