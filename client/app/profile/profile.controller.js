@@ -26,7 +26,13 @@ function profileController($scope, Complaint, localStorageService, $interval) {
 		// $scope.complaints = Complaint.query({userEmail: $scope.user.email}).$promise
 		Complaint.query().$promise
 		.then(function (res) {
-			$scope.complaints = res;
+			var valids = [];
+			for (var i = res.length - 1; i >= 0; i--) {
+				if(res[i].userEmail === $scope.user.email)
+					valids.push(res[i]);
+			};
+
+			$scope.complaints = valids;
 			$scope.currentComplaint = $scope.complaints[$scope.complaints.length - 1];
 		});
 		$scope.currentComplaint = {};

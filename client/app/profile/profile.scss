@@ -18,7 +18,7 @@
 		border: #DDD 2px solid;
 
 		.complainContainer {
-			flex: 25;
+			flex: 20;
 			border-right: #DDD solid 2px;
 			flex-shrink: 0;
 
@@ -55,7 +55,7 @@
 		}
 
 		.messageContainer {
-			flex: 50;	
+			flex: 40;	
 			flex-shrink: 0;
 			border-right: #DDD solid 2px;
 			max-height: 100%;
@@ -92,7 +92,7 @@
 		}
 
 		.inforContainer {
-			flex: 25;
+			flex: 40;
 			flex-shrink: 0;
 
 			.resolveButton {

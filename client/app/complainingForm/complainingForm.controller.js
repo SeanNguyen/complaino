@@ -25,9 +25,10 @@ function complainingFormController($rootScope, $scope, localStorageService, $mdD
 	$scope.currentCategoryIndex = -1;
 	$scope.getCurrentTime = getCurrentTime;
 
-	var companies = [	{ name: 'Singtel' }, 
+	var companies = [	{ name: 'Singtel', 	categories: ['Mobile', 'Internet', 'Connectivity', 'Bill', 'Others'] }, 
 						{ name: 'M1' }, 
 						{ name: 'StarHub' }, 
+						{ name: 'Vodafone'},
 						{ name: 'Singapore Airline', 
 							categories: ['Personnel', 'Cancellation', 'Lost Item', 'Baggage', 'Delay', 'Others'] }];
 
@@ -60,11 +61,11 @@ function complainingFormController($rootScope, $scope, localStorageService, $mdD
 			var complaint = new Complaint({
 				company: $scope.input.selectedItem.name,
 				content: $scope.input.complain,
-				userEmail: user.email,
+				userEmail: $scope.user.email,
 				rate: 0,
 				category: $scope.input.selectedItem.categories[$scope.currentCategoryIndex],
-				customerId: $scope.user.customerId,
-				referenceId: $scope.user.referenceId,
+				customerId: $scope.input.customerId,
+				referenceId: $scope.input.referenceId,
 				messages: [{content: "Hi! This is just to let you know that we have received your case and will start working on it. Should we require further information, we'll reach out to you shortly. Cheers!", 
 							isFromUser: false}],
 				status: true,

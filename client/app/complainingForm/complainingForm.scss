@@ -1,9 +1,13 @@
+@import '../config.scss';
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
+
 .complainingForm {
 	position: relative;
 
 	md-autocomplete md-autocomplete-wrap {
 		box-shadow: none;	
-		border: #3F51B5 2px solid;	
+		border: $color-primary 2px solid;	
 		border-radius: 7px;
 	}
 
@@ -19,6 +23,7 @@
 			font-weight: 700;
 			color: #444;
 			font-size: 50px;
+			font-family: 'Open Sans', sans-serif;
 		}
 	}
 
@@ -51,15 +56,19 @@
 		border-radius: 20px;
 		height: 50px;
 		width: 80%;
-		border: 2px #3F51B5 solid;
+		border: 2px $color-primary solid;
 		outline: none;
 
 		font-size: 14px;
 		font-weight: bold;
 	}
 
+	.categoryButton:focus {
+		outline: none;
+	}
+
 	.selected {
-		background-color: #00C853;
+		background-color: $color-accent;
 		border: none;
 		color: #FEFEFE;
 	}

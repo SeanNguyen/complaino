@@ -33,7 +33,7 @@
       </md-tab>
       <md-tab label="two">
         <div class="container">
-          <h4>Please share your concerns/complaint?</h4>
+          <h4>Please share your complaint?</h4>
           <div layout='row' layout-wrap layout-align='start start'>
             <div flex='33' ng-repeat='category in input.selectedItem.categories'>
               <button class="btn btn-default categoryButton" ng-class="{selected: currentCategoryIndex === $index}" ng-click='selectCategory($index)'>{{category}}</button>  
@@ -41,20 +41,20 @@
           </div>
         	<md-input-container class="md-block">
             <label>Detailed Information</label>
-            <textarea ng-model="input.complain" columns="1" md-maxlength="200" md-minlength="3" rows="3"></textarea>
+            <textarea ng-model="input.complain" columns="1" md-maxlength="10000" md-minlength="3" rows="3"></textarea>
             <div class="uploadImage-button">
-              <md-button><i class="fa fa-file-image-o"></i></md-button>
+              <md-button><i class="fa fa-upload"></i></md-button>
             </div>
           </md-input-container>
 
           <div layout-padding layout-gt-sm="row">
             <md-input-container flex='50'>
               <label>Customer ID (Optional)</label>
-              <input ng-model="user.customerId">
+              <input ng-model="input.customerId">
             </md-input-container>
             <md-input-container flex='50'>
               <label>Reference ID (Optional)</label>
-              <input ng-model="user.referenceId">
+              <input ng-model="input.referenceId">
             </md-input-container>
           </div>
           <div layout="row" layout-align="end center">
