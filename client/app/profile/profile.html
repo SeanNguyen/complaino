@@ -1,10 +1,6 @@
 <div class="profile">
-	<div class="navbarContainer">
-		<div class="navbar" ng-include="'app/navbar/navbar.html'"></div>
-	</div>
+	<div class="navbar" ng-include="'app/navbar/navbar.html'"></div>
 	
-	<md-divider></md-divider>
-
 	<div class="mainContainer">
 		<div class="complainContainer">
 			<div ng-repeat='complaint in complaints' class="complaintItem btn btn-default btn-block" ng-click='select($index)'

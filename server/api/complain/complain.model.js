@@ -8,7 +8,11 @@ var ComplainSchema = new Schema({
   userEmail: String,
   company: String,
   rate: Number,
-  messages: Array
+  customerId: String,
+  referenceId: String,
+  messages: Array,
+  status: Boolean,
+  timestamp: Date
 });
 
 module.exports = mongoose.model('Complain', ComplainSchema);

@@ -5,12 +5,8 @@
 	display: flex;
 	flex-direction: column;
 	align-items: strech;
-
+	padding: 10px;
 	height: 100%;
-
-	.navbarContainer {
-		padding: 10px;
-	}
 
 	.mainContainer {
 		display: flex;
@@ -18,6 +14,8 @@
 		align-items: start;
 		flex-grow: 1;
 		flex-wrap: nowrap;
+		margin: -10px;
+		border: #DDD 2px solid;
 
 		.complainContainer {
 			flex: 25;

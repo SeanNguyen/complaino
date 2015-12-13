@@ -8,11 +8,12 @@ class MainController {
 var app = angular.module('complainoApp');
 app.controller('complainingFormController', complainingFormController);
 
-function complainingFormController($rootScope, $scope, localStorageService, $mdDialog, $mdMedia) {
+function complainingFormController($rootScope, $scope, localStorageService, $mdDialog, $mdMedia, Complaint) {
 	$scope.input = {
 		selectedItem: '',
 		searchText: '',
-		stage: 0
+		stage: 0,
+		complain: ''
 	};
 	$rootScope.user = null;
 
@@ -53,6 +54,24 @@ function complainingFormController($rootScope, $scope, localStorageService, $mdD
 		if($scope.input.stage + 1 === 1 && !$scope.user) {
 			showLogInPopUp();
 			return;
+		}
+		if($scope.input.stage + 1 === 2 && $scope.user) {
+			//save to db
+			var complaint = new Complaint({
+				company: $scope.input.selectedItem.name,
+				content: $scope.input.complain,
+				userEmail: user.email,
+				rate: 0,
+				customerId: user.customerId,
+				referenceId: user.referenceId,
+				messages: [{content: 'Hi !', isFromUser: false}],
+				status: true,
+				timestamp: moment()
+			});
+			complaint.$save()
+			.then(function(res) {
+				console.log(res);
+			});
 		}
 
 		if($scope.input.stage >= 2)

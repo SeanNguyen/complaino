@@ -58,7 +58,7 @@
           </div>
           <div layout="row" layout-align="end center">
             <md-button class='md-raised md-primary' style='color: #FCFCFC' ng-click='nextStage()'
-              ng-disabled='!input.complain || currentCategoryIndex === -1 || input.complain.length < 40'>Submit</md-button>  
+              ng-disabled='!input.complain || currentCategoryIndex === -1 || input.complain.length < 3'>Submit</md-button>  
             <md-button ng-click='lastStage()' class='md-raised md-accent'>Back</md-button>
           </div>
         </div>
@@ -92,7 +92,8 @@
             </tr>
           </table>
           <div layout="row" layout-align="end center">
-            <md-button class='md-primary' ng-click='reset()'>Submit an other complain</md-button>
+            <md-button class='md-raised md-primary' style='color: #FEFEFE' href='/me'>Follow Up</md-button>
+            <md-button ng-click='reset()'>Submit an other complain</md-button>
           </div>
         </div>
       </md-tab>
