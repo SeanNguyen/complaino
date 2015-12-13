@@ -20,11 +20,15 @@ function complainingFormController($rootScope, $scope, localStorageService, $mdD
 	$scope.nextStage = nextStage;
 	$scope.lastStage = lastStage;
 	$scope.reset = reset;
+	$scope.selectCategory = selectCategory;
+	$scope.currentCategoryIndex = -1;
+	$scope.getCurrentTime = getCurrentTime;
 
 	var companies = [	{ name: 'Singtel' }, 
 						{ name: 'M1' }, 
 						{ name: 'StarHub' }, 
-						{ name: 'Singapore Airline' }];
+						{ name: 'Singapore Airline', 
+							categories: ['Personnel', 'Cancellation', 'Lost Item', 'Baggage', 'Delay', 'Others'] }];
 
 	active()
 
@@ -92,6 +96,15 @@ function complainingFormController($rootScope, $scope, localStorageService, $mdD
 	    }, function(sm) {
 	      $scope.customFullscreen = (sm === true);
 	    });
+	}
+
+	function selectCategory(index) {
+		$scope.currentCategoryIndex = index;
+	}
+
+	function getCurrentTime() {
+		var time = moment().format('MMM DD, YYYY');
+		return time;
 	}
 }
 

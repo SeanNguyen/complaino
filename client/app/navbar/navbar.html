@@ -1,11 +1,24 @@
 <div ng-controller='navbarController' class="navbar" layout="row" layout-align="start center">
-	<label class="logo">Complaino</label>
+	<label class="logo"><a href="/"><img src="assets/images/logo.jpg" class="logoImage img">omplaino</a></label>
 	
 	<div class="profileButton">
+		<!-- <div layout layout='start start'>
+			<div class="profileButton">
+				<a href="#">FAQs</a>
+			</div>
+			<div class="profileButton">
+				<a href="#">How it Works</a>
+			</div>
+			<div class="profileButton">
+				<a href="#">Testimonials</a>
+			</div>
+			<div class="profileButton">
+				<a href="#">About Us</a>
+			</div>
+		</div> -->
 		<label>{{user.name}}</label>
 		<md-button class="md-icon-button" aria-label="Profile">
 	        <md-icon md-svg-icon="assets/images/user.svg"></md-icon>
 	    </md-button>	
 	</div>
-	
 </div>

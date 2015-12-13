@@ -3,11 +3,19 @@
 	padding: 1px;
 
 	.logo {
-		font-size: 20px;
+		a {
+			font-size: 20px;
+			color: #212121;
+		}
 	}
 
 	.profileButton {
 		position: absolute;
 		right: 0; left: auto;
+	}
+
+	img.logoImage {
+		width: 30px;
+		height: auto;
 	}
 }

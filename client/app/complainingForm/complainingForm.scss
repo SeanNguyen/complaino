@@ -2,7 +2,7 @@
 	position: relative;
 
 	md-autocomplete md-autocomplete-wrap {
-		box-shadow: none;
+		box-shadow: none;	
 		border: #3F51B5 2px solid;	
 		border-radius: 7px;
 	}
@@ -19,17 +19,57 @@
 		right: 0;
 		height: 50px;
 		z-index: 5;
-		background-color: #FAFAFA;
-	}
-}
-
-.loginTemplate {
-	md-tabs md-tabs-wrapper {
-		background-color: #F44336;
+		background-color: #FEFEFE;
 	}
 
-	button {
-		margin: 10px;
+	.serchBarContainer {
+		position: relative;
+		width: 100%;
+	}
+
+	.md-button {
+		width: 50%;
+	}
+
+	.search-company {
+		margin-bottom: 20px;
+	}
+
+	.categoryButton {
+		margin: 20px;
+		border-radius: 20px;
+		height: 50px;
 		width: 80%;
+		border: 2px #3F51B5 solid;
+		outline: none;
+
+		font-size: 14px;
+		font-weight: bold;
+	}
+
+	.selected {
+		background-color: #00C853;
+		border: none;
+		color: #FEFEFE;
+	}
+
+	.headline {
+		margin: 100px 0;
+		font-weight: 900;
+	}
+
+	tr {
+		height: 50px;
+		font-size: 14px;
+	}
+
+	.resultItem {
+		margin: 20px 0;
+	}
+
+	.uploadImage-button {
+		position: absolute;
+		bottom: 20px;
+		right: 0;
 	}
 }

@@ -1,0 +1,44 @@
+.loginTemplate {
+	width: 600px;
+
+	md-tabs md-tabs-wrapper {
+		background-color: #F44336;
+	}
+
+	.fruit-container {
+		padding: 20px;
+	}
+
+	.facebookButton {
+		width: 100%;
+		margin: 20px 0;
+	}
+
+	.seperatorWord {
+		margin: 20px 0;
+		font-weight: bold;
+		font-size: 20px;
+	}
+
+	.sinnperContainer {
+		position: absolute;
+		top: -10px;
+		left: auto;
+		right: -20px;
+		bottom: auto;
+	}
+
+	.emailContainer {
+		position: relative;
+	}
+
+	.formHeader {
+		position: relative;
+		padding: 20px;
+	}
+	.exitButton {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}

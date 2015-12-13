@@ -3,48 +3,94 @@
         md-selected='input.stage' md-dynamic-height='true'>
       <md-tab label="one">
         <div class="container">
+          <div layout layout-align='center center'>
+            <h1 class="headline">One-stop customer care...</h1>  
+          </div>
           <md-autocomplete class='search-company'
-            md-selected-item="input.selectedItem"
-            md-search-text-change="querySearch(input.searchText)"
-            md-search-text="input.searchText"
-            md-selected-item-change="selectedItemChange(item)"
-            md-items="item in querySearch(input.searchText)"
-            md-item-text="item.name"
-            md-min-length="1"
-            placeholder="search for a company...">
-            <md-item-template>
-              <span md-highlight-text="input.searchText" md-highlight-flags="^i">{{item.name}}</span>
-            </md-item-template>
-            <md-not-found>
-              No states matching "{{ctrl.searchText}}" were found.
-            </md-not-found>
-          </md-autocomplete>
+              md-selected-item="input.selectedItem"
+              md-search-text-change="querySearch(input.searchText)"
+              md-search-text="input.searchText"
+              md-selected-item-change="selectedItemChange(item)"
+              md-items="item in querySearch(input.searchText)"
+              md-item-text="item.name"
+              md-min-length="1"
+              placeholder="search for a company...">
+              <md-item-template>
+                <span md-highlight-text="input.searchText" md-highlight-flags="^i">{{item.name}}</span>
+              </md-item-template>
+              <md-not-found>
+                No states matching "{{ctrl.searchText}}" were found.
+              </md-not-found>
+            </md-autocomplete>
 
-          <div layout="row" layout-align="end center">
-            <md-button ng-disabled="!input.selectedItem">Detail</md-button>
+          <div layout="row" layout-align="center center">
             <md-button class='md-raised md-primary' style='color: #FCFCFC' ng-click='nextStage()'
               ng-disabled="!input.selectedItem">Complain</md-button>
+            <!-- <md-button ng-disabled="!input.selectedItem">Detail</md-button> -->
           </div>
         </div>
       </md-tab>
       <md-tab label="two">
         <div class="container">
+          <h4>Please share your concerns/complaint?</h4>
+          <div layout='row' layout-wrap layout-align='start start'>
+            <div flex='33' ng-repeat='category in input.selectedItem.categories'>
+              <button class="btn btn-default categoryButton" ng-class="{selected: currentCategoryIndex === $index}" ng-click='selectCategory($index)'>{{category}}</button>  
+            </div>
+          </div>
         	<md-input-container class="md-block">
-            <label>Complain</label>
+            <label>Detailed Information</label>
             <textarea ng-model="input.complain" columns="1" md-maxlength="200" md-minlength="3" rows="3"></textarea>
+            <div class="uploadImage-button">
+              <md-button><i class="fa fa-file-image-o"></i></md-button>
+            </div>
           </md-input-container>
+
+          <div layout-padding layout-gt-sm="row">
+            <md-input-container flex='50'>
+              <label>Customer ID (Optional)</label>
+              <input ng-model="user.customerId">
+            </md-input-container>
+            <md-input-container flex='50'>
+              <label>Reference ID (Optional)</label>
+              <input ng-model="user.referenceId">
+            </md-input-container>
+          </div>
           <div layout="row" layout-align="end center">
-            <md-button ng-click='lastStage()'>Back</md-button>
             <md-button class='md-raised md-primary' style='color: #FCFCFC' ng-click='nextStage()'
-              ng-disabled='!input.complain || input.complain.length < 3'>Submit</md-button>  
+              ng-disabled='!input.complain || currentCategoryIndex === -1 || input.complain.length < 40'>Submit</md-button>  
+            <md-button ng-click='lastStage()' class='md-raised md-accent'>Back</md-button>
           </div>
         </div>
       </md-tab>
       <md-tab label="three">
         <div class="container">
-          <h3>Your request has been submited successfully. You can go watch tv and wait for the good news from us :)</h3>
-          <h4>Company: {{input.selectedItem.name}}</h4>
-          <h4>Complain: {{input.complain}}</h4>
+          <h3 class="resultItem">Thank You!</h3>
+          <h4 class="resultItem">Your request has been submited successfully. We are on it and you will hear from us soon.</h4>
+
+          <table class="table resultItem">
+            <tr>
+              <td>Company</td>
+              <td>{{input.selectedItem.name}}</td>
+            </tr>
+            <tr>
+              <td>Complain</td>
+              <td>{{input.complain}}</td>
+            </tr>
+
+            <tr>
+              <td>Started</td>
+              <td>{{getCurrentTime()}}</td>
+            </tr>
+            <tr>
+              <td>Last Update</td>
+              <td>{{getCurrentTime()}}</td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td>Open</td>
+            </tr>
+          </table>
           <div layout="row" layout-align="end center">
             <md-button class='md-primary' ng-click='reset()'>Submit an other complain</md-button>
           </div>
