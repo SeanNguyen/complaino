@@ -51,7 +51,7 @@ function complainingFormController($rootScope, $scope, localStorageService, $mdD
 	
 	function nextStage() {
 		//try to commit when not log in
-		if($scope.input.stage + 1 === 1 && !$scope.user) {
+		if($scope.input.stage + 1 === 2 && !$scope.user) {
 			showLogInPopUp();
 			return;
 		}
@@ -65,7 +65,7 @@ function complainingFormController($rootScope, $scope, localStorageService, $mdD
 				category: $scope.input.selectedItem.categories[$scope.currentCategoryIndex],
 				customerId: $scope.user.customerId,
 				referenceId: $scope.user.referenceId,
-				messages: [{content: 'Hi !', isFromUser: false}],
+				messages: [{content: 'Hi', isFromUser: false}],
 				status: true,
 				timestamp: moment()
 			});

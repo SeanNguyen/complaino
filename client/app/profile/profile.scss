@@ -58,14 +58,14 @@
 			position: relative;
 
 			.messageBubble {
-				margin: 20px 20px 20px 50%;
+				margin: 20px 50% 20px 20px;
 				padding: 10px;
 				border-radius: 20px;
 				border: 2px solid $color-primaryDark;
 			}
 
 			.user {
-				margin: 20px 50% 20px 20px;
+				margin: 20px 20px 20px 50%;
 				border: 2px solid $color-accentDark;	
 			}
 

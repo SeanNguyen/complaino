@@ -23,8 +23,8 @@ function profileController($scope, Complaint, localStorageService, $interval) {
 		$scope.user = localStorageService.get('user');
 
 		//fetch company
-		// $scope.complaints = Complaint.query({userEmail: $scope.user.email});
-		Complaint.query().$promise
+		$scope.complaints = Complaint.query({userEmail: $scope.user.email});
+		// Complaint.query().$promise
 		.then(function(res) {
 			$scope.complaints = res;
 			$scope.currentComplaint = $scope.complaints[0];
